@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontix Portfolio</title>
+    <link rel="shortcut icon" href="../imgs/frontix-symbol.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/frontix.css" />
+</head>
+
+<body class="page-link">
+
+<div data-include="../include/sub-header.html"></div>
+
+<div class="tab tab--line" data-tab>
+    <div class="tab__nav" role="tablist">
+        <button class="tab__btn is-active" data-tab-btn="t1">Dev</button>
+        <button class="tab__btn" data-tab-btn="t2">Design</button>
+        <button class="tab__btn" data-tab-btn="t3">표준 / 접근성</button>
+        <button class="tab__btn" data-tab-btn="t4">협업 / 버전관리</button>
+        <button class="tab__btn" data-tab-btn="t5">Etc</button>
+    </div>
+
+    <div class="tab__content links">
+        <div class="tab__panel is-active" data-tab-panel="t1">
+            <div data-include="../pages/link/tab__panel01.html"></div>
+        </div> <!-- // ✔ panel 1 -->
+        
+        <div class="tab__panel" data-tab-panel="t2">
+            <div data-include="../pages/link/tab__panel02.html"></div>
+        </div> <!-- // ✔ panel 2 -->
+        
+        <div class="tab__panel" data-tab-panel="t3">
+            <div data-include="../pages/link/tab__panel03.html"></div>
+        </div> <!-- // ✔ panel 3 -->
+        
+        <div class="tab__panel" data-tab-panel="t4">
+            <div data-include="../pages/link/tab__panel04.html"></div>
+        </div> <!-- // ✔ panel 4 -->
+        
+        <div class="tab__panel" data-tab-panel="t5">
+            <div data-include="../pages/link/tab__panel05.html"></div>
+        </div> <!-- // ✔ panel 5 -->
+    </div>
+</div>
+
+<div data-include="../include/footer.html"></div>
+
+<button id="topBtn" class="top-btn">
+    <svg width="20" height="20" viewBox="0 0 24 24">
+        <path d="M12 5l-7 7h4v7h6v-7h4z" fill="#000"/>
+    </svg>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-element-bundle.min.js"></script>
+<script src="../js/include.js"></script>
+<script src="../js/common.js"></script>
+<script>
+
+const tabNav = document.querySelector('.tab__nav');
+const tab = tabNav.closest('.tab');
+const start = tabNav.offsetTop;
+
+window.addEventListener('scroll', () => {
+    const tabRect = tab.getBoundingClientRect();
+
+    if (tabRect.top <= 80 && tabRect.bottom > tabNav.offsetHeight + 80) {
+        tabNav.classList.add('is-fixed');
+    } else {
+        tabNav.classList.remove('is-fixed');
+    }
+});
+
+</script>
+</body>
+</html>

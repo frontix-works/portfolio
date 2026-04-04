@@ -1,0 +1,222 @@
+@charset "utf-8";
+
+/* =========================
+Buttons
+========================= */
+.c-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 24px;
+	font-size: 14px;
+	border-radius: 8px;
+	border: 1px solid #E5E5E5;
+	background-color: #ffffff;
+	transition: all 0.2s ease;
+	cursor: pointer;
+	&:hover {
+		background-color: #f5f5f5;
+	}
+}
+
+.c-btn--primary {
+	color: #ffffff;
+	border-color: #2563EB;
+	background: #2563EB;
+	&:hover {
+		background-color: #1E4FD8;
+	}
+}
+
+/* =========================
+Card Component
+========================= */
+.c-card {
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    padding: 32px;
+    background: #ffffff;
+    transition: all 0.2s ease;
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    > div {
+        margin-bottom: 12px;
+        span {
+            display: inline-block;
+        }
+        .owner {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .company {
+            font-size: 14px;
+            color: #777;
+        }
+    }
+    p {
+        font-size: 14px;
+        color: #666666;
+        &.position {
+            color: #111;
+        }
+    }
+}
+
+/* =========================
+Badge
+========================= */
+.c-badge {
+    display: inline-block;
+    background: #2563EB;
+    color: #ffffff;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+}
+
+/* =========================
+Code Block
+========================= */
+pre {
+    background: #0F172A;
+    color: #F8FAFC;
+    padding: 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    overflow-x: auto;
+}
+
+/* =========================
+modal
+========================= */
+.modal {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    z-index:999;
+    .close {
+        position:absolute;
+        top:10px;
+        right:15px;
+        border:none;
+        background:none;
+        font-size:24px;
+        cursor:pointer;
+        + div {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
+.modal-content{
+    background:#fff;
+    padding:30px;
+    max-width:500px;
+    margin:100px auto;
+    border-radius:10px;
+    position:relative;
+    .logo {
+        width: 100%;
+        height: 40px;
+        background-position: 0 50%;
+    }
+    h3 {
+        margin-top: 4px;
+        margin-bottom: 0;
+        padding: 8px 0;
+        font-size: 24px;
+        background-color: #efefef;
+    }
+    #modal-period {
+        text-align: right;
+    }
+}
+.modal-section{
+    margin-top:15px;
+    strong {
+        color: #999;
+    }
+}
+
+
+/* =========================
+// ✔ base (공통 기능)
+========================= */
+.tab {
+    &__nav {
+        display: flex;
+        justify-content: center;
+        position: sticky;
+        top: 70px; // 또는 header 높이만큼
+        z-index: 20;
+        background: #fff;
+    }
+    &__btn {
+        cursor: pointer;
+        border: 0;
+        background: none;
+    }
+    &__panel {
+        display: none;
+        &.is-active {
+            display: block;
+        }
+    }
+}
+
+// ✔ variant 1: line
+.tab--line {
+    .tab__nav {
+        border-bottom: 1px solid #ddd;
+    }
+    .tab__btn {
+        padding: 10px 16px;
+        color: #666;
+        border-bottom: 2px solid transparent;
+        &.is-active {
+            color: #000;
+            font-weight: 600;
+            border-color: #000;
+        }
+    }
+}
+
+// ✔ variant 2: pill
+.tab--pill {
+    .tab__nav {
+        gap: 8px;
+        border: 0 none;
+    }
+    .tab__btn {
+        padding: 8px 14px;
+        border-radius: 20px;
+        background: #f1f1f1;
+        &.is-active {
+            background: #000;
+            color: #fff;
+        }
+    }
+}
+
+// ✔ variant 3: box
+.tab--box {
+    .tab__btn {
+        padding: 12px;
+        border: 1px solid #ddd;
+        &.is-active {
+            color: #fff;
+            border-color: #000;
+            background: #000;
+        }
+    }
+}
